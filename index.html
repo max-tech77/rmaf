@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Real Madrid Fan Page</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* SECTION BACKGROUND */
+.section-bg {
+    position: relative;
+    padding: 100px 60px;
+}
+
+.section-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    background: rgba(255,255,255,0.95);
+    color: black;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.logo-small {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    width: 60px;
+}
+
+/* NAV */
+nav {
+    text-align: center;
+    padding: 15px;
+    background: #e6f0ff;
+}
+
+nav a {
+    margin: 0 25px;
+    text-decoration: none;
+    color: #0033a0;
+    font-weight: bold;
+}
+
+/* HOME */
+.home::before {
+    background-image: url("images/home-bg.jpeg");
+}
+
+.home-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-text {
+    width: 55%;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.home-logo {
+    width: 320px;
+}
+
+/* TEAM */
+.team::before {
+    background-image: url("images/team.jpeg");
+}
+
+.team img {
+    width: 70%;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.players img {
+    width: 120px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* TROPHIES */
+.trophies::before {
+    background-image: url("images/trophy-bg.jpeg");
+}
+
+table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 60%;
+    background: rgba(255,255,255,0.9);
+    color: black;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+/* INFO */
+.info::before {
+    background-image: url("images/ronaldo.jpeg");
+}
+
+/* GALLERY */
+.gallery::before {
+    background-image: url("images/gallery-bg.jpeg");
+}
+
+.gallery img {
+    width: 250px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* HEADINGS */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer {
+    background: #111;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Real Madrid CF</h1>
+    <img src="images/rma.png" class="logo-small">
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#team">Team</a>
+    <a href="#trophies">Trophies</a>
+    <a href="#info">Info</a>
+    <a href="#gallery">Gallery</a>
+</nav>
+
+<!-- HOME -->
+<section class="section-bg home" id="home">
+    <div class="home-content">
+        <div class="home-text">
+            <h2>Home</h2>
+            <p>
+            Real Madrid CF is one of the most iconic and successful football clubs in the world, known for its rich history, legendary players, and unmatched achievements. Founded in 1902, the club has built a global fanbase and continues to dominate European football with its passion, excellence, and winning mentality.
+            </p>
+        </div>
+
+        <img src="images/rma.png" class="home-logo">
+    </div>
+</section>
+
+<!-- TEAM -->
+<section class="section-bg team" id="team">
+    <h2>Team</h2>
+
+    <p>
+    The current squad of Real Madrid CF features a perfect blend of experienced leaders and young talents. With stars like Kylian mbappe , Jude Bellingham, Vinícius Júnior, Rodrygo, and valverde the team continues to compete at the highest level under world-class management.
+    </p>
+
+    <img src="images/team.jpeg">
+
+    <h3>Star Players</h3>
+    <div class="players">
+        <img src="images/mbappe.jpeg">
+        <img src="images/bellingham.jpeg">
+        <img src="images/vini.jpeg">
+        <img src="images/rodrygo.jpeg">
+    </div>
+</section>
+
+<!-- TROPHIES -->
+<section class="section-bg trophies" id="trophies">
+    <h2>Trophies</h2>
+
+    <table>
+        <tr><th>Competition</th><th>Titles</th></tr>
+        <tr><td>Champions League</td><td>14</td></tr>
+        <tr><td>La Liga</td><td>35</td></tr>
+        <tr><td>Copa del Rey</td><td>20</td></tr>
+        <tr><td>Supercopa</td><td>13</td></tr>
+    </table>
+</section>
+
+<!-- INFO -->
+<section class="section-bg info" id="info">
+    <h2>Info</h2>
+
+    <p>
+    CRISTIANO RONALDO represents one of the greatest eras in the history of Real Madrid CF. During his time at the club, he became the all-time top scorer and played a key role in leading the team to multiple UEFA Champions League victories. His dedication, passion, and unmatched work ethic perfectly reflect the spirit of Real Madrid—relentless, ambitious, and always striving for greatness. Even after his departure, his legacy continues to inspire millions of fans around the world, symbolizing excellence, determination, and the true meaning of wearing the white jersey.
+    </p>
+</section>
+
+<!-- GALLERY -->
+<section class="section-bg gallery" id="gallery">
+    <h2>Gallery</h2>
+
+    <p>
+    Explore unforgettable moments from the journey of Real Madrid CF—from historic victories to legendary players and iconic celebrations. This gallery captures the spirit and pride of the club.
+    </p>
+
+    <div>
+        <img src="images/g1.jpeg">
+        <img src="images/g2.jpeg">
+        <img src="images/g3.jpeg">
+        <img src="images/g4.jpeg">
+        <img src="images/g5.jpeg">
+    </div>
+</section>
+
+<footer>
+    <p>Real Madrid Fan Web</p>
+</footer>
+
+</body>
+</html>
