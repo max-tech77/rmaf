@@ -6,29 +6,17 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
-html { scroll-behavior: smooth; }
-
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     color: white;
 }
 
-/* SECTION BACKGROUND */
-.section-bg {
-    position: relative;
-    padding: 100px 60px;
-}
+html { scroll-behavior: smooth; }
 
-.section-bg::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    filter: blur(6px);
-    opacity: 0.5;
-    z-index: -1;
+/* TEXT VISIBILITY FIX */
+p, h2, h3 {
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
 }
 
 /* HEADER */
@@ -61,8 +49,9 @@ nav a {
 }
 
 /* HOME */
-.home::before {
-    background-image: url("images/home-bg.jpeg");
+.home {
+    background: url("images/home-bg.jpeg") center/cover no-repeat;
+    padding: 120px 60px;
 }
 
 .home-content {
@@ -81,15 +70,23 @@ nav a {
     width: 320px;
 }
 
-/* TEAM */
-.team::before {
-    background-image: url("images/team.jpeg");
+/* TEAM (NO BACKGROUND EFFECT) */
+.team {
+    background: #f5f8ff;
+    color: black;
+    padding: 100px 60px;
+    text-align: center;
 }
 
-.team img {
+.team p {
+    color: black;
+    text-shadow: none;
+}
+
+.team img.main {
     width: 70%;
-    border-radius: 10px;
     margin: 30px 0;
+    border-radius: 10px;
 }
 
 .players img {
@@ -99,12 +96,13 @@ nav a {
 }
 
 /* TROPHIES */
-.trophies::before {
-    background-image: url("images/trophy-bg.jpeg");
+.trophies {
+    background: url("images/trophy-bg.jpeg") center/cover no-repeat;
+    padding: 100px;
 }
 
 table {
-    margin: 30px auto;
+    margin: auto;
     border-collapse: collapse;
     width: 60%;
     background: rgba(255,255,255,0.9);
@@ -116,26 +114,48 @@ th, td {
     border: 1px solid #ccc;
 }
 
-/* INFO */
-.info::before {
-    background-image: url("images/ronaldo.jpeg");
+/* INFO (FULL IMAGE NO BLUR) */
+.info {
+    background: url("images/ronaldo.jpeg") center/cover no-repeat;
+    padding: 120px 80px;
 }
 
-/* GALLERY */
+.info p {
+    max-width: 900px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* GALLERY (SLIDER BACK) */
+.gallery {
+    position: relative;
+    padding: 100px;
+    text-align: center;
+}
+
 .gallery::before {
-    background-image: url("images/gallery-bg.jpeg");
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("images/gallery-bg.jpeg") center/cover no-repeat;
+    filter: blur(6px);
+    opacity: 0.5;
+    z-index: -1;
 }
 
-.gallery img {
-    width: 250px;
-    margin: 10px;
+.slider img {
+    width: 400px;
     border-radius: 10px;
 }
 
-/* HEADINGS */
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background: #0033a0;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 footer {
@@ -162,28 +182,26 @@ footer {
 </nav>
 
 <!-- HOME -->
-<section class="section-bg home" id="home">
+<section class="home" id="home">
     <div class="home-content">
         <div class="home-text">
-            <h2>Home</h2>
             <p>
             Real Madrid CF is one of the most iconic and successful football clubs in the world, known for its rich history, legendary players, and unmatched achievements. Founded in 1902, the club has built a global fanbase and continues to dominate European football with its passion, excellence, and winning mentality.
             </p>
         </div>
-
         <img src="images/rma.png" class="home-logo">
     </div>
 </section>
 
 <!-- TEAM -->
-<section class="section-bg team" id="team">
+<section class="team" id="team">
     <h2>Team</h2>
 
     <p>
     The current squad of Real Madrid CF features a perfect blend of experienced leaders and young talents. With stars like Kylian mbappe , Jude Bellingham, Vinícius Júnior, Rodrygo, and valverde the team continues to compete at the highest level under world-class management.
     </p>
 
-    <img src="images/team.jpeg">
+    <img src="images/team.jpeg" class="main">
 
     <h3>Star Players</h3>
     <div class="players">
@@ -195,7 +213,7 @@ footer {
 </section>
 
 <!-- TROPHIES -->
-<section class="section-bg trophies" id="trophies">
+<section class="trophies" id="trophies">
     <h2>Trophies</h2>
 
     <table>
@@ -208,34 +226,48 @@ footer {
 </section>
 
 <!-- INFO -->
-<section class="section-bg info" id="info">
+<section class="info" id="info">
     <h2>Info</h2>
 
     <p>
-    CRISTIANO RONALDO represents one of the greatest eras in the history of Real Madrid CF. During his time at the club, he became the all-time top scorer and played a key role in leading the team to multiple UEFA Champions League victories. His dedication, passion, and unmatched work ethic perfectly reflect the spirit of Real Madrid—relentless, ambitious, and always striving for greatness. Even after his departure, his legacy continues to inspire millions of fans around the world, symbolizing excellence, determination, and the true meaning of wearing the white jersey.
+CRISTIANO RONALDO represents one of the most iconic and unforgettable eras in the history of Real Madrid CF. After joining the club in 2009, he quickly became the face of a new generation, transforming into a global symbol of excellence at the legendary Santiago Bernabéu Stadium. With his incredible goal-scoring ability, unmatched athleticism, and relentless consistency, he shattered records and became the club’s all-time leading scorer. Every time he stepped onto the pitch, he carried the expectations of millions, yet continued to deliver performances that redefined greatness and inspired fans around the world.
+
+His legacy was built on the biggest stage in football—the UEFA Champions League—where he played a crucial role in Real Madrid’s dominance. Cristiano led the team to multiple Champions League titles, including the historic achievement of winning three consecutive trophies, a moment that cemented the club’s place at the top of European football. His ability to perform under pressure, score decisive goals, and lead by example made him the driving force behind some of the most memorable nights in the club’s history, creating moments that fans will never forget.
+
+Beyond goals and trophies, Cristiano Ronaldo embodied the true spirit of Real Madrid CF—discipline, ambition, and an unbreakable winning mentality. His dedication and work ethic set new standards for professionalism, inspiring teammates and future generations alike. Even after his departure, his influence continues to live on in the hearts of fans, reminding the world of an era defined by passion, dominance, and greatness. His legacy is eternal, not just as a player, but as a symbol of what it truly means to wear the white jersey.
     </p>
 </section>
 
 <!-- GALLERY -->
-<section class="section-bg gallery" id="gallery">
+<section class="gallery" id="gallery">
     <h2>Gallery</h2>
 
-    <p>
-    Explore unforgettable moments from the journey of Real Madrid CF—from historic victories to legendary players and iconic celebrations. This gallery captures the spirit and pride of the club.
-    </p>
-
-    <div>
-        <img src="images/g1.jpeg">
-        <img src="images/g2.jpeg">
-        <img src="images/g3.jpeg">
-        <img src="images/g4.jpeg">
-        <img src="images/g5.jpeg">
+    <div class="slider">
+        <img id="slide" src="images/g1.jpeg">
     </div>
+
+    <button onclick="prev()">Prev</button>
+    <button onclick="next()">Next</button>
 </section>
 
 <footer>
-    <p>Real Madrid Fan Web</p>
+    <p>Real Madrid Fan Website</p>
 </footer>
+
+<script>
+let images = ["images/g1.jpeg","images/g2.jpeg","images/g3.jpeg","images/g4.jpeg","images/g5.jpeg"];
+let i = 0;
+
+function next(){
+    i = (i + 1) % images.length;
+    document.getElementById("slide").src = images[i];
+}
+
+function prev(){
+    i = (i - 1 + images.length) % images.length;
+    document.getElementById("slide").src = images[i];
+}
+</script>
 
 </body>
 </html>
