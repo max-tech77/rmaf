@@ -6,6 +6,8 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
+html { scroll-behavior:smooth; }
+
 body { margin:0; font-family:Poppins; color:white; }
 p,h2,h3 { text-shadow:2px 2px 6px rgba(0,0,0,0.8); }
 
@@ -28,10 +30,19 @@ transition:0.3s;
 transform:scale(1.1);
 }
 
-/* NAV TEXT INLINE */
+/* NAV */
 .nav-text{
 flex:1;
 text-align:center;
+}
+.nav-text a{
+margin:0 15px;
+text-decoration:none;
+color:#0033a0;
+font-weight:bold;
+}
+.nav-text a:hover{
+text-decoration:underline;
 }
 
 /* HOME */
@@ -66,26 +77,27 @@ transition:0.3s;
 transform:scale(1.15);
 }
 
-/* TROPHIES FULL BG */
+/* TROPHIES */
 .trophies{
 background:url("images/trophy-bg.jpeg") center/cover no-repeat;
-padding:120px;
+padding:150px 60px;
 text-align:center;
 }
-.trophies::before{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.4);
-z-index:-1;
-}
+
 table{
-margin:auto;
-background:rgba(255,255,255,0.9);
+margin:40px auto;
+width:75%;
+font-size:18px;
+background:rgba(255,255,255,0.95);
 color:black;
 border-collapse:collapse;
+border-radius:10px;
+overflow:hidden;
 }
-th,td{padding:12px;border:1px solid #ccc;}
+th,td{
+padding:18px;
+border:1px solid #ccc;
+}
 
 /* INFO */
 .info{
@@ -119,6 +131,7 @@ gap:20px;
 .slider img{
 width:500px;
 border-radius:10px;
+transition: opacity 0.4s ease;
 }
 
 .arrow{
@@ -141,14 +154,18 @@ padding:20px;
     <div>Real Madrid CF</div>
 
     <div class="nav-text">
-        Home &nbsp;&nbsp; Team &nbsp;&nbsp; Trophies &nbsp;&nbsp; Info &nbsp;&nbsp; Gallery
+        <a href="#home">Home</a>
+        <a href="#team">Team</a>
+        <a href="#trophies">Trophies</a>
+        <a href="#info">Info</a>
+        <a href="#gallery">Gallery</a>
     </div>
 
     <img src="images/rma.png" class="logo-small">
 </header>
 
 <!-- HOME -->
-<section class="home">
+<section class="home" id="home">
 <div class="home-content">
 <p style="width:50%;">
 Real Madrid CF is one of the most iconic and successful football clubs in the world, known for its rich history, legendary players, and unmatched achievements. Founded in 1902, the club has built a global fanbase and continues to dominate European football with its passion, excellence, and winning mentality.
@@ -158,7 +175,7 @@ Real Madrid CF is one of the most iconic and successful football clubs in the wo
 </section>
 
 <!-- TEAM -->
-<section class="team">
+<section class="team" id="team">
 <h2>Team</h2>
 <p>
 The current squad of Real Madrid CF features a perfect blend of experienced leaders and young talents. With stars like Kylian mbappe , Jude Bellingham, Vinícius Júnior, Rodrygo, and valverde the team continues to compete at the highest level under world-class management.
@@ -175,7 +192,7 @@ The current squad of Real Madrid CF features a perfect blend of experienced lead
 </section>
 
 <!-- TROPHIES -->
-<section class="trophies">
+<section class="trophies" id="trophies">
 <h2>Trophies</h2>
 <table>
 <tr><th>Competition</th><th>Titles</th></tr>
@@ -187,7 +204,7 @@ The current squad of Real Madrid CF features a perfect blend of experienced lead
 </section>
 
 <!-- INFO -->
-<section class="info">
+<section class="info" id="info">
 <h2>Info</h2>
 <p>
 CRISTIANO RONALDO represents one of the most iconic and unforgettable eras in the history of Real Madrid CF... (keep your full text same)
@@ -195,7 +212,7 @@ CRISTIANO RONALDO represents one of the most iconic and unforgettable eras in th
 </section>
 
 <!-- GALLERY -->
-<section class="gallery">
+<section class="gallery" id="gallery">
 <h2>Gallery</h2>
 
 <p>
@@ -216,8 +233,25 @@ Real Madrid Fan Website
 <script>
 let images=["images/g1.jpeg","images/g2.jpeg","images/g3.jpeg","images/g4.jpeg","images/g5.jpeg"];
 let i=0;
-function next(){i=(i+1)%images.length;document.getElementById("slide").src=images[i];}
-function prev(){i=(i-1+images.length)%images.length;document.getElementById("slide").src=images[i];}
+let slide=document.getElementById("slide");
+
+function showImage(index){
+    slide.style.opacity=0;
+    setTimeout(()=>{
+        slide.src=images[index];
+        slide.style.opacity=1;
+    },200);
+}
+
+function next(){
+    i=(i+1)%images.length;
+    showImage(i);
+}
+
+function prev(){
+    i=(i-1+images.length)%images.length;
+    showImage(i);
+}
 </script>
 
 </body>
